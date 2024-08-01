@@ -1,9 +1,13 @@
 module.exports = {
+    root: true,
+    env: {
+        browser: true,
+        es6: true,
+        node: true
+    },
     extends: [
         'eslint:recommended',
-        'plugin:markdown/recommended',
         'plugin:react/recommended',
-        'plugin:react/jsx-runtime',
         'plugin:react-hooks/recommended',
         'plugin:jsx-a11y/recommended',
         'plugin:prettier/recommended'
@@ -14,8 +18,15 @@ module.exports = {
         }
     },
     parser: '@typescript-eslint/parser',
+    parserOptions: {
+        ecmaFeatures: {
+            jsx: true
+        },
+        ecmaVersion: 2020,
+        sourceType: 'module'
+    },
     ignorePatterns: ['**/node_modules', '**/dist', '**/build', '**/package-lock.json'],
-    plugins: ['unused-imports'],
+    plugins: ['@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y', 'prettier', 'unused-imports'],
     rules: {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         'no-unused-vars': 'off',
